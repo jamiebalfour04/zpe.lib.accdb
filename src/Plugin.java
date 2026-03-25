@@ -2,13 +2,14 @@ import com.healthmarketscience.jackcess.Database;
 import com.healthmarketscience.jackcess.DatabaseBuilder;
 import com.healthmarketscience.jackcess.Row;
 import com.healthmarketscience.jackcess.Table;
+import jamiebalfour.zpe.core.YASSByteCodes;
 import jamiebalfour.zpe.core.ZPEFunction;
 import jamiebalfour.zpe.core.ZPERuntimeEnvironment;
 import jamiebalfour.zpe.core.ZPEStructure;
-import jamiebalfour.zpe.interfaces.ZPECustomFunction;
-import jamiebalfour.zpe.interfaces.ZPELibrary;
-import jamiebalfour.zpe.interfaces.ZPEType;
-import jamiebalfour.zpe.types.ZPEBoolean;
+import jamiebalfour.zpe.core.interfaces.ZPECustomFunction;
+import jamiebalfour.zpe.core.interfaces.ZPELibrary;
+import jamiebalfour.zpe.core.interfaces.ZPEType;
+import jamiebalfour.zpe.core.types.ZPEBoolean;
 
 import java.io.File;
 import java.io.IOException;
@@ -114,8 +115,8 @@ public class Plugin implements ZPELibrary {
     }
 
     @Override
-    public byte getReturnType() {
-      return 0;
+    public byte[] getReturnTypes() {
+      return new byte[]{YASSByteCodes.BOOLEAN_TYPE};
     }
 
     @Override
