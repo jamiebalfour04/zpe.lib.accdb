@@ -2,10 +2,7 @@ import com.healthmarketscience.jackcess.Database;
 import com.healthmarketscience.jackcess.DatabaseBuilder;
 import com.healthmarketscience.jackcess.Row;
 import com.healthmarketscience.jackcess.Table;
-import jamiebalfour.zpe.core.YASSByteCodes;
-import jamiebalfour.zpe.core.ZPEFunction;
-import jamiebalfour.zpe.core.ZPERuntimeEnvironment;
-import jamiebalfour.zpe.core.ZPEStructure;
+import jamiebalfour.zpe.core.*;
 import jamiebalfour.zpe.core.interfaces.ZPECustomFunction;
 import jamiebalfour.zpe.core.interfaces.ZPELibrary;
 import jamiebalfour.zpe.core.interfaces.ZPEType;
@@ -27,7 +24,12 @@ public class Plugin implements ZPELibrary {
 
   @Override
   public Map<String, Class<? extends ZPEStructure>> getObjects() {
-    return Map.of();
+    return new HashMap<>();
+  }
+
+  @Override
+  public Map<String, ZPEModule> getModules() {
+    return new HashMap<>();
   }
 
   @Override
@@ -47,7 +49,7 @@ public class Plugin implements ZPELibrary {
 
   @Override
   public String getName() {
-    return "libMSAccess";
+    return "libACCDB";
   }
 
   @Override
@@ -101,7 +103,7 @@ public class Plugin implements ZPELibrary {
 
       if(new File(path).exists()){
        try{
-         Database db = DatabaseBuilder.open(new File("/Users/jamiebalfour/Downloads/Customer.accdb"));
+         Database db = DatabaseBuilder.open(new File(path));
 
          return new ZPEACCDB(runtime, currentFunction, db);
 

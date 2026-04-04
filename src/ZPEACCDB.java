@@ -255,7 +255,7 @@ public class ZPEACCDB extends ZPEStructure {
 
       @Override
       public ZPEType MainMethod(JBBinarySearchTree<String, ZPEType> parameters, ZPEObject zpeObject)
-              throws ZPERuntimeException, ExitHalt, IncorrectDataTypeException {
+              throws ZPERuntimeException {
         return get(parameters.get("column_name").toString());
       }
 
